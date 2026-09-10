@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="fas fa-user-circle me-2"></i>My Profile</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" 
+                                   value="{{ user.username }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" 
+                                   value="{{ user.email }}" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" 
+                                   value="{{ user.age or '' }}" min="1" max="120">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="favorite_category" class="form-label">Favorite Category</label>
+                            <input type="text" class="form-control" id="favorite_category" name="favorite_category" 
+                                list="categories_list" value="{{ user.favorite_category or '' }}" 
+                                placeholder="Choose existing or type new category">
+                            <datalist id="categories_list">
+                                {% for cat in categories %}
+                                    <option value="{{ cat }}">
+                                {% endfor %}
+                            </datalist>
+                            <small class="text-muted">Select from list or type a new category.</small>
+                        </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="favorite_book" class="form-label">Favorite Book</label>
+                            <input type="text" class="form-control" id="favorite_book" name="favorite_book" 
+                                   value="{{ user.favorite_book or '' }}" placeholder="Title of your favorite book">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="favorite_author" class="form-label">Favorite Author</label>
+                            <input type="text" class="form-control" id="favorite_author" name="favorite_author" 
+                                   value="{{ user.favorite_author or '' }}" placeholder="Author's name">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>Back to Home
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Update Profile
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

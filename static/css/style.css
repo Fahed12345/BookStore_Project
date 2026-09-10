@@ -1,0 +1,92 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f9;
+    color: #2C3E50;
+}
+
+.hover-effect {
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.hover-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(44, 62, 80, 0.15) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b4292 100%);
+    transform: scale(1.02);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+    font-weight: 600;
+}
+
+.btn-outline-primary {
+    border: 2px solid #667eea;
+    color: #667eea;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background: #667eea;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #f1c40f !important;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.badge.bg-danger {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.detail-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}

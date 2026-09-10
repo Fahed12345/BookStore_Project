@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<h2>Create Account</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Age (optional)</label>
+        <input type="number" name="age" class="form-control">
+    </div>
+    <div class="mb-3">
+    <label for="favorite_category" class="form-label">Favorite Category (optional)</label>
+    <input type="text" class="form-control" id="favorite_category" name="favorite_category" 
+           list="categories_list" value="{{ request.form.get('favorite_category', '') }}" 
+           placeholder="Choose existing or type new category">
+    <datalist id="categories_list">
+        {% for cat in categories %}
+            <option value="{{ cat }}">
+        {% endfor %}
+    </datalist>
+    <small class="text-muted">You can select from the list or type a new category.</small>
+    </div>
+    <div class="mb-3">
+        <label>Favorite Book</label>
+        <input type="text" name="favorite_book" class="form-control" placeholder="Your favorite book title">
+    </div>
+    <div class="mb-3">
+        <label>Favorite Author</label>
+        <input type="text" name="favorite_author" class="form-control" placeholder="Your favorite author">
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+{% endblock %}

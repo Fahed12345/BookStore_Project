@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Edit Book{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning">
+                    <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Edit Book</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="title" class="form-label">Title *</label>
+                                <input type="text" class="form-control" id="title" name="title" 
+                                       value="{{ book.title }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="author" class="form-label">Author *</label>
+                                <input type="text" class="form-control" id="author" name="author" 
+                                       value="{{ book.author }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="isbn" class="form-label">ISBN</label>
+                                <input type="text" class="form-control" id="isbn" name="isbn" 
+                                       value="{{ book.isbn }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="publisher" class="form-label">Publisher</label>
+                                <input type="text" class="form-control" id="publisher" name="publisher" 
+                                       value="{{ book.publisher or '' }}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="year" name="year" 
+                                       value="{{ book.year or '' }}" min="1000" max="2099">
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="category" name="category" 
+                                    list="categories_list" value="{{ book.category or '' }}" 
+                                    placeholder="Choose existing or type new category">
+                                <datalist id="categories_list">
+                                    {% for cat in categories %}
+                                        <option value="{{ cat }}">
+                                    {% endfor %}
+                                </datalist>
+                                <small class="text-muted">You can select from the list or type a new category.</small>
+                            </div>
+
+                        <div class="mb-3">
+                            <label for="image_url" class="form-label">Image URL</label>
+                            <input type="url" class="form-control" id="image_url" name="image_url" 
+                                   value="{{ book.image_url or '' }}" placeholder="https://example.com/cover.jpg">
+                            {% if book.image_url %}
+                                <div class="mt-2">
+                                    <img src="{{ book.image_url }}" alt="Current cover" style="max-height: 100px;">
+                                    <span class="text-muted ms-2">Current cover</span>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('admin_books') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>Update Book
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

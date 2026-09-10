@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Admin - Add Book{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2><i class="fas fa-plus-circle"></i> Add New Book</h2>
+        <hr>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="كتاب العنوان" required>
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author <span class="text-danger">*</span></label>
+                <input type="text" name="author" id="author" class="form-control" placeholder="المؤلف" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="text" name="isbn" id="isbn" class="form-control" placeholder="Leave blank to auto-generate">
+                        <div class="form-text">If left blank, a temporary ID will be generated.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="number" name="year" id="year" class="form-control" placeholder="2024">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="publisher" class="form-label">Publisher</label>
+                <input type="text" name="publisher" id="publisher" class="form-control" placeholder="الناشر">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category" 
+                    list="categories_list" value="{{ request.form.get('category', '') }}" 
+                    placeholder="Choose existing or type new category">
+                <datalist id="categories_list">
+                    {% for cat in categories %}
+                        <option value="{{ cat }}">
+                    {% endfor %}
+                </datalist>
+                <small class="text-muted">You can select from the list or type a new category.</small>
+            </div>
+            <div class="mb-3">
+                <label for="image_url" class="form-label">Image URL</label>
+                <input type="url" name="image_url" id="image_url" class="form-control" placeholder="https://example.com/cover.jpg">
+                <div class="form-text">Paste a direct link to the book cover image.</div>
+            </div>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Add Book
+            </button>
+            <a href="{{ url_for('admin_books') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
