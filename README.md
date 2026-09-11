@@ -28,8 +28,9 @@ Git (اختياري، لاستنساخ المشروع)
 الخطوة الأولى: تحميل المشروع
 
 
-git clone https://github.com/Fahed12345/BookStore_project.git
-cd BookStore_project
+ https://github.com/Fahed12345/BookStore_project.git
+ ادخل الى الموقع وحمل الملفات المشروع
+
 
 
 الخطوة الثانية: إنشاء بيئة افتراضية
