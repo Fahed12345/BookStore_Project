@@ -77,28 +77,6 @@ exit()
 
 النتيجة: سيتم تحميل جميع الكتب إلى قاعدة البيانات.
 
-الخطوة السادسة: إنشاء حساب المدير
-
-نفّذ الأوامر التالية:
-
-from app import app, db
-from models import User
-from werkzeug.security import generate_password_hash
-
-with app.app_context():
-    admin = User(
-        username='admin',
-        email='admin@example.com',
-        password_hash=generate_password_hash('1122509'),
-        is_admin=True
-    )
-    db.session.add(admin)
-    db.session.commit()
-    print("تم إنشاء حساب المدير")
-exit()
-
-بيانات الدخول: اسم المستخدم admin وكلمة المرور 1122509
-
 الخطوة السابعة: تدريب نماذج التوصية
 
 python train_models.py
