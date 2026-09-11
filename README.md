@@ -31,7 +31,6 @@ Git (اختياري، لاستنساخ المشروع)
 git clone https://github.com/Fahed12345/BookStore_project.git
 cd BookStore_project
 
-استبدل YOUR_USERNAME باسم المستخدم الخاص بك على GitHub.
 
 الخطوة الثانية: إنشاء بيئة افتراضية
 
