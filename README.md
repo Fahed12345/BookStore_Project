@@ -27,24 +27,19 @@ Git (اختياري، لاستنساخ المشروع)
 
 الخطوة الأولى: تحميل المشروع
 
-افتح سطر الأوامر (CMD أو Terminal) ونفّذ الأمر التالي:
 
-git clone https://github.com/YOUR_USERNAME/BookStore_project.git
+git clone https://github.com/Fahed12345/BookStore_project.git
 cd BookStore_project
 
 استبدل YOUR_USERNAME باسم المستخدم الخاص بك على GitHub.
 
 الخطوة الثانية: إنشاء بيئة افتراضية
 
-على Windows:
+
 
 python -m venv venv
 venv\Scripts\activate
 
-على Mac أو Linux:
-
-python3 -m venv venv
-source venv/bin/activate
 
 بعد التفعيل، ستلاحظ ظهور (venv) على يسار سطر الأوامر.
 
@@ -119,7 +114,6 @@ python app.py
 
 http://127.0.0.1:5000
 
-مبروك! التطبيق يعمل الآن على جهازك.
 
 بيانات الدخول
 
@@ -173,14 +167,3 @@ scikit-surprise - خوارزمية SVD
 scikit-learn - TF-IDF و Cosine Similarity
 Bootstrap 5 - تصميم الواجهات
 
-التواصل
-
-للأسئلة والاستفسارات، يرجى التواصل عبر البريد الإلكتروني أو فتح Issue في GitHub.
-
-الترخيص
-
-هذا المشروع مخصص للأغراض الأكاديمية والتعليمية.
-
----
-
-انسخ هذا النص بالكامل والصقه في ملف README.md على GitHub. بالتوفيق!
