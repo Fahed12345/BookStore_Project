@@ -51,40 +51,10 @@ pip install -r requirements.txt
 
 pip install flask flask-sqlalchemy werkzeug pandas numpy scikit-learn scikit-surprise
 
-الخطوة الرابعة: إعداد قاعدة البيانات
 
-شغّل الأمر التالي:
 
-python
 
-ثم داخل بيئة Python، نفّذ:
-
-from app import app, db
-with app.app_context():
-    db.create_all()
-    print("تم إنشاء قاعدة البيانات بنجاح")
-exit()
-
-النتيجة: سيتم إنشاء ملف bookstore.db تلقائياً في مجلد المشروع.
-
-الخطوة الخامسة: إضافة بيانات الكتب
-
-تأكد من وجود ملف data/books_clean.csv، ثم نفّذ:
-
-from app import app, populate_database
-with app.app_context():
-    populate_database()
-exit()
-
-النتيجة: سيتم تحميل جميع الكتب إلى قاعدة البيانات.
-
-الخطوة السابعة: تدريب نماذج التوصية
-
-python train_models.py
-
-النتيجة: سيتم إنشاء ملفات النماذج في مجلد models.
-
-الخطوة الثامنة: تشغيل التطبيق
+الخطوة الثالثة: تشغيل التطبيق
 
 python app.py
 
@@ -111,7 +81,7 @@ templates/                قوالب HTML
 static/                   ملفات CSS و JS
 data/                     ملفات CSV
 models/                   النماذج المدرَّبة
-bookstore.db              قاعدة البيانات (تُنشأ تلقائياً)
+
 
 اختبار النظام
 
@@ -121,19 +91,7 @@ bookstore.db              قاعدة البيانات (تُنشأ تلقائيا
 قيّم بعض الكتب (من 0 إلى 10).
 اذهب إلى صفحة التوصيات لرؤية الاقتراحات المخصصة.
 
-حل المشكلات الشائعة
 
-المشكلة: ModuleNotFoundError
-الحل: تأكد من تفعيل البيئة الافتراضية ثم أعد تثبيت المكتبات
-
-المشكلة: Table doesn't exist
-الحل: نفّذ خطوة إنشاء قاعدة البيانات (الخطوة الرابعة)
-
-المشكلة: Too few ratings
-الحل: أضف بعض التقييمات عبر الموقع قبل إعادة التدريب
-
-المشكلة: Port already in use
-الحل: أغلق أي تطبيق آخر يستخدم المنفذ 5000
 
 التقنيات المستخدمة
 
